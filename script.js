@@ -33,8 +33,20 @@ gameArea.innerText = "";
 const UserNumbers = askNumbers(numbersToGuess);
 
 //Viene comunicato:
-//-- quanti comunicati
-//-- quali comunicati.
+//-- quanti indovinati
+//-- quali indovinati.
+}
+
+function askNumbers (numberToAsk){
+    const userNumbers = [];
+    let number;
+    for(let i = o ; i < numberToAsk; i ++){
+        do{
+            const number = parseInt(prompt('che numero hai visto?'));
+        }while(isNaN(number))
+        userNumbers.push(number);
+    }
+    return userNumbers;
 }
 
 //Creo una funzione per geneare i numeri casuali.
