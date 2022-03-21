@@ -23,9 +23,31 @@ const numbers = generateNumbers();
 
 
 //Creo una funzione per geneare i numeri casuali.
-function generateNumbers(){
-    const number = generateRandomNumber(1, 100);
+function generateNumbers(arraylenght){
+
+    const uniqueNumbers = [];
+
+    //Ripetiamo l'operazione finchè la lunghezza dell'array saraà inferiore al mumer di numeri casuali generati.
+    while(uniqueNumbers.lenght < arraylenght){
+
+        const number = generateRandomNumber(1, 100);
+        if (uniqueNumbers.includes(number)=== false){
+            uniqueNumbers.push (number);
+        }
+    }
+    return uniqueNumbers;
+    
 }
 
 //Creo una funzione per generare numeri casuali univoci.
-function generateRandomNumber(min, max){}
+function generateRandomNumber(min, max){
+
+    //Calcoliamo il range di numeri da generare.
+    const range = max-min+1;
+    
+    //Creiamo la costante per geneare randomicamente un numero.
+    const generatedNumber = Math.floor(Math.random()*range)+ min;
+
+    //Restituisci il numero generato.
+    return generateNumbers;
+}
