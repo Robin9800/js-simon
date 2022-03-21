@@ -6,38 +6,53 @@ Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei num
 const button = document.getElementById('start');
 const gameArea = document.getElementById('game-area');
 
+//Variabili di configurazione
+const timeToWait = 30;
+const numbersToGuess = 5;
+
+
 //Generare 5 numeri casuali univoci.
-const numbers = generateNumbers();
+const numbers = generateNumbers(numbersToGuess);
 
 //Al click su start:
-//-- appaiono 5 numeri
-//-- e parte il countdown.
+button.addEventListener('click', () => {
+
+    //-- appaiono 5 numeri
+    gameArea.innerText = numbers.join(' - ');
+    //-- e parte il countdown.
+    setTimeout(endTimeout, timeToWait*1000);
+});
 
 //Al termine del countdown:
+function endTimeout(){
+
 //-- i numeri spariscono
+gameArea.innerText = "";
+
 //-- vengono chiesti i 5 numeri visualizzati.
+const UserNumbers = askNumbers(numbersToGuess);
 
 //Viene comunicato:
 //-- quanti comunicati
 //-- quali comunicati.
-
+}
 
 //Creo una funzione per geneare i numeri casuali.
 function generateNumbers(arraylenght){
 
     const uniqueNumbers = [];
 
-    //Ripetiamo l'operazione finchè la lunghezza dell'array saraà inferiore al mumer di numeri casuali generati.
+    //Ripetiamo l'operazione finchè la lunghezza dell'array sarà inferiore al mumer di numeri casuali generati.
     while(uniqueNumbers.lenght < arraylenght){
 
         const number = generateRandomNumber(1, 100);
-        if (uniqueNumbers.includes(number)=== false){
-            uniqueNumbers.push (number);
+        if (!uniqueNumbers.includes(number)){
+            uniqueNumbers.push(number);
         }
     }
     return uniqueNumbers;
     
-}
+};
 
 //Creo una funzione per generare numeri casuali univoci.
 function generateRandomNumber(min, max){
