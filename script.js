@@ -30,7 +30,7 @@ function endTimeout(){
 gameArea.innerText = "";
 
 //-- vengono chiesti i 5 numeri visualizzati.
-const UserNumbers = askNumbers(numbersToGuess);
+const userNumbers = askNumbers(numbersToGuess);
 
 //Viene comunicato:
 //-- quanti indovinati
